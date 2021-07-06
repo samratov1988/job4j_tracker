@@ -8,13 +8,6 @@ public class Error {
 
     private String message;
 
-    public void printInfo() {
-        System.out.println("Активна: " + active);
-        System.out.println("Код ошибки: " + status);
-        System.out.println("Сообщение: " + message);
-        System.out.println();
-    }
-
     public Error(boolean active, int status, String message) {
         this.active = active;
         this.status = status;
@@ -22,9 +15,13 @@ public class Error {
     }
 
     public Error() {
-        active = true;
-        status = 505;
-        message = "Устаревший браузер";
+    }
+
+    public void printInfo() {
+        System.out.println("Активна: " + active);
+        System.out.println("Код ошибки: " + status);
+        System.out.println("Сообщение: " + message);
+        System.out.println();
     }
 
     public static void main(String[] args) {

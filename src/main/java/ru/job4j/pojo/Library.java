@@ -1,6 +1,6 @@
 package ru.job4j.pojo;
 
-public class Library { // philosophyJava1168, clean code464
+public class Library {
     public static void main(String[] args) {
         Book javaForDummies = new Book("Java for Dummies", 434);
         Book springJava = new Book("Spring Java", 754);
@@ -11,21 +11,18 @@ public class Library { // philosophyJava1168, clean code464
         books[1] = springJava;
         books[2] = philosophyJava;
         books[3] = cleanCode;
-        for (int index = 0; index < books.length; index++) {
-            Book bk = books[index];
+        for (Book bk : books) {
             System.out.println(bk.getName() + ", p." + bk.getCountPages());
         }
         books[0] = cleanCode;
         books[3] = javaForDummies;
         System.out.println();
-        for (int index = 0; index < books.length; index++) {
-            Book bk = books[index];
+        for (Book bk : books) {
             System.out.println(bk.getName() + ", p." + bk.getCountPages());
         }
         System.out.println();
-        for (int index = 0; index < books.length; index++) {
-            Book bk = books[index];
-            if (bk.getName().equals("Clean code")) {
+        for (Book bk : books) {
+            if ("Clean code".equals(bk.getName())) {
                 System.out.println(bk.getName() + ", p." + bk.getCountPages());
             }
         }

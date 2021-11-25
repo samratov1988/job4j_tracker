@@ -13,11 +13,10 @@ public class Matches {
             int matches = Integer.parseInt(input.nextLine());
             if (matches > 3 || matches < 0 || matches > count) {
                 System.out.println("Неправильное число. Введите еще раз.");
-                matches = 0;
+            } else {
                 turn = !turn;
+                count -= matches;
             }
-            turn = !turn;
-            count -= matches;
             System.out.println("На столе осталось " + count + " спичек.");
         }
         if (!turn) {

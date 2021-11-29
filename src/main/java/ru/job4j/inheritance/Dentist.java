@@ -2,12 +2,12 @@ package ru.job4j.inheritance;
 
 public class Dentist extends Doctor {
     private int teethCollection;
-    private int countPatient;
 
-    public Dentist(int teethCollection, int countPatient, int experienceYears, int hoursWorkDay) {
-        super(experienceYears, hoursWorkDay);
+    public Dentist(String name, String surname,
+                   String education, String birthday,
+                   int teethCollection, int experienceYears, int hoursWorkDay) {
+        super(name, surname, education, birthday, experienceYears, hoursWorkDay);
         this.teethCollection = teethCollection;
-        this.countPatient = countPatient;
     }
 
     public void healTeeth() {
@@ -22,15 +22,7 @@ public class Dentist extends Doctor {
         return teethCollection;
     }
 
-    public int getCountPatient() {
-        return countPatient;
-    }
-
     public void setTeethCollection(int teethCollection) {
         this.teethCollection = teethCollection;
-    }
-
-    public void setCountPatient(int countPatient) {
-        this.countPatient = countPatient;
     }
 }

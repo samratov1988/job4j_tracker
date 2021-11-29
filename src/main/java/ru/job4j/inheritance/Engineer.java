@@ -4,7 +4,10 @@ public class Engineer extends Profession {
     private String[] instruments;
     private int practiceYears;
 
-    public Engineer(String[] instruments, int practiceYears) {
+    public Engineer(String name, String surname,
+                    String education, String birthday,
+                    String[] instruments, int practiceYears) {
+        super(name, surname, education, birthday);
         this.instruments = instruments;
         this.practiceYears = practiceYears;
     }

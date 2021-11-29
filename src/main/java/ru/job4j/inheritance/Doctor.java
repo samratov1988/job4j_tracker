@@ -4,7 +4,10 @@ public class Doctor extends Profession {
     private int experienceYears;
     private int hoursWorkDay;
 
-    public Doctor(int experienceYears, int hoursWorkDay) {
+    public Doctor(String name, String surname,
+                  String education, String birthday,
+                  int experienceYears, int hoursWorkDay) {
+        super(name, surname, education, birthday);
         this.experienceYears = experienceYears;
         this.hoursWorkDay = hoursWorkDay;
     }

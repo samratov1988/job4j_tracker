@@ -25,4 +25,21 @@ public class NotifyAccountTest {
         );
         assertThat(NotifyAccount.sent(accounts), is(expect));
     }
+
+    @Test
+    public void delDubl() {
+        List<Account> accounts = Arrays.asList(
+                new Account("111", "Petr Arsentev", "eDer3432f"),
+                new Account("222", "Petr Arsentev", "000001"),
+                new Account("111", "Petr Arsentev", "eDer3432f"),
+                new Account("222", "Petr Arsentev", "000001")
+        );
+        HashSet<Account> expect = new HashSet<>(
+                Arrays.asList(
+                        new Account("111", "Petr Arsentev", "eDer3432f"),
+                        new Account("222", "Petr Arsentev", "000001")
+                )
+        );
+        assertThat(NotifyAccount.sent(accounts), is(expect));
+    }
 }

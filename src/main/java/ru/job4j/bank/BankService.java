@@ -9,15 +9,15 @@ public class BankService {
     private final Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-        if (!users.containsKey(user)) {
-            users.put(user, new ArrayList<>());
-        }
+        users.putIfAbsent(user, new ArrayList<>());
     }
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        if (!users.get(user).contains(account)) {
-            users.get(user).add(account);
+        if (user != null) {
+            if (!users.get(user).contains(account)) {
+                users.get(user).add(account);
+            }
         }
     }
 
@@ -31,8 +31,8 @@ public class BankService {
     }
 
     public Account findByRequisite(String passport, String requisite) {
-        if (findByPassport(passport) != null) {
-            User user = findByPassport(passport);
+        User user = findByPassport(passport);
+        if (user != null) {
             for (Account account: users.get(user)) {
                 if (requisite.equals(account.getRequisite())) {
                     return account;
@@ -48,10 +48,12 @@ public class BankService {
         boolean rsl = false;
         Account src = findByRequisite(srcPassport, srcRequisite);
         Account dest = findByRequisite(destPassport, destRequisite);
-        if (src.getBalance() >= amount && src != null) {
-            src.setBalance(src.getBalance() - amount);
-            dest.setBalance(dest.getBalance() + amount);
-            rsl = true;
+        if (src != null && dest != null) {
+            if (src.getBalance() >= amount) {
+                src.setBalance(src.getBalance() - amount);
+                dest.setBalance(dest.getBalance() + amount);
+                rsl = true;
+            }
         }
         return rsl;
     }

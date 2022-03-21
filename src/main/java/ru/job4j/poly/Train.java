@@ -3,6 +3,7 @@ package ru.job4j.poly;
 public class Train implements Vehicle {
     @Override
     public void move() {
-        System.out.println(getClass().getSimpleName() + " - Передвигается по рельсам со скоростью 80 км/ч.");
+        System.out.println(getClass().getSimpleName()
+                + " - Передвигается по рельсам со скоростью 80 км/ч.");
     }
 }

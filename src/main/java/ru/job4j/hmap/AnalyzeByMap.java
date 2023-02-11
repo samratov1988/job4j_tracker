@@ -3,7 +3,6 @@ package ru.job4j.hmap;
 import java.util.*;
 
 public class AnalyzeByMap {
-
     public static double averageScore(List<Pupil> pupils) {
         double sum = 0;
         int count = 0;
